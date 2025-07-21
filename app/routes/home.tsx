@@ -14,21 +14,23 @@ export default function Home() {
   return <main className="bg-[url('/images/bg-main.svg')] bg-cover">
     <Navbar />
 
-    <section className={"main-section"}>
-      <div className={"heading"}>
-        <h1> Resume Ratings & Application Tracker</h1>
+    <section className="main-section">
+      <div className="page-heading py-16">
+        <h1>Resume Ratings & Application Tracker</h1>
         <h2>Get AI powered feedback for resume</h2>
       </div>
+
+      {resumes.length > 0 && (
+          <div className="resumes-section">
+            {resumes.map( (resume) => (
+                <ResumeCard key = {resume.id} resume= {resume} />
+            ))}
+
+          </div>
+      )}
     </section>
 
-    {resumes.length > 0 && (
-        <div className={"resume-section"}>
-          {resumes.map((resume) =>(
-              <ResumeCard key = {resume.id} resume= {resume} />
-          ))}
 
-        </div>
-    )}
 
   </main>
 }
